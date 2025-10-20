@@ -1,18 +1,36 @@
-// 🌞 Theme Toggle
-const themeBtn = document.getElementById('themeToggle');
-themeBtn.addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark');
-  const mode = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-  localStorage.setItem('theme', mode);
-  themeBtn.textContent = mode === 'dark' ? '🌚' : '🌞';
+/**
+ * ============================================================
+ * BRIGHTSTART LANDING PAGE - MAIN SCRIPT
+ * ============================================================
+ * This script controls all interactive features of the BrightStart landing page.
+ * It includes:
+ *  - Theme toggle (light/dark mode)
+ *  - Smooth transitions for theme changes
+ *  - User preference persistence using localStorage
+ *  - Accessibility support for better usability
+ * 
+ * THEME TOGGLE FUNCTIONALITY
+ * ==========================
+ * Handles switching between light and dark modes
+ * Persists user preference in localStorage
+ * Updates button icon dynamically
+ */
+const themeBtn = document.getElementById("themeToggle");
+themeBtn.addEventListener("click", () => {
+  // Toggle dark class on document element
+  document.documentElement.classList.toggle("dark");
+  // Determine current mode and update button
+  const mode = document.documentElement.classList.contains("dark")
+    ? "dark"
+    : "light";
+  localStorage.setItem("theme", mode);
+  themeBtn.textContent = mode === "dark" ? "🌚" : "🌞";
 });
-
-// Load theme from localStorage
-if (localStorage.getItem('theme') === 'dark') {
-  document.documentElement.classList.add('dark');
-  themeBtn.textContent = '🌚';
+// Load saved theme preference on page load
+if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.classList.add("dark");
+  themeBtn.textContent = "🌚";
 }
-
 // 🎯 Scroll to About Section
 const scrollBtn = document.getElementById('scrollBtn');
 scrollBtn.addEventListener('click', () => {
@@ -35,6 +53,7 @@ counters.forEach(counter => {
     if (count >= counter.end) clearInterval(interval);
   }, 20);
 });
+
 // 📚 Favorite Courses (LocalStorage)
 const buttons = document.querySelectorAll('.course-btn');
 const listContainer = document.getElementById('favoritesList');
